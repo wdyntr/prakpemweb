@@ -15,9 +15,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update'])) {
     $nama = $_POST['nama'];
     $prodi = $_POST['prodi'];
 
-    $sql = "UPDATE mahasiswa SET NIM=?, Nama=?, Prodi=? WHERE NIM=?";
+    $sql = "UPDATE mahasiswa SET Nama=?, Prodi=? WHERE NIM=?";
     $res = $conn->prepare($sql);
-    $res->bind_param("ssss", $nim, $nama, $prodi, $nim);
+    $res->bind_param("sss", $nama, $prodi, $nim);
     $res->execute();
 
     if ($res->affected_rows > 0) {
