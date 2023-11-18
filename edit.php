@@ -9,9 +9,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update'])) {
     $prodi = $_POST['prodi'];
 
     // Update the data in the database
-    $sql = "UPDATE mahasiswa SET Nama=?, Prodi=? WHERE NIM=?";
+    $sql = "UPDATE mahasiswa SET NIM=?, Nama=?, Prodi=? WHERE NIM=?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("sss", $nama, $prodi, $nim);
+    $stmt->bind_param("ssss", $nim, $nama, $prodi, $nim);
     $stmt->execute();
 
     // Check for success or display an error message
