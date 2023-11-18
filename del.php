@@ -7,11 +7,11 @@ if (isset($_POST["hapus"])) {
     $result = $conn->query($sql);
 
     if ($result) {
-        echo "Data terakhir berhasil dihapus.";
+        echo '<script>alert("Data berhasil dihapus."); window.location.href = "index.php";</script>';
     } else {
         echo "Gagal menghapus data. Error: " . $conn->error;
     }
 }
-header("Location: index.php");
 exit();
+
 ?>
