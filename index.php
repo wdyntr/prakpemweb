@@ -13,12 +13,15 @@ $res = isset($_GET['search_prodi']) ? searchProdi($conn, $_GET['search_prodi']) 
     <title>121140183</title>
 </head>
 <body>
+    <div class="heading">
+        <h1>Data Mahasiswa</h1>
+    </div>
     <section>
         <div class="form">
             <form action="" method="get" class="input">
                 <label for="search_prodi">Cari berdasarkan Prodi: </label> 
                 <select id="search_prodi" name="search_prodi">
-                    <option value="---Pilih Prodi---">---Pilih Prodi---</option>
+                    <option value="">---Pilih Prodi---</option>
                     <option value="T.IF">T.IF</option>
                     <option value="T.Elektro">T.Elektro</option>
                     <option value="T.Mesin">T.Mesin</option>
@@ -77,7 +80,7 @@ $res = isset($_GET['search_prodi']) ? searchProdi($conn, $_GET['search_prodi']) 
                 <div class="input-box">
                     <label for="prodi">Prodi: </label> 
                     <select id="prodi" name="prodi">
-                        <option value="---Pilih Prodi---">---Pilih Prodi---</option>
+                        <option value="">---Pilih Prodi---</option>
                         <option value="T.IF">T.IF</option>
                         <option value="T.Elektro">T.Elektro</option>
                         <option value="T.Mesin">T.Mesin</option>
