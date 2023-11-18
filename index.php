@@ -1,8 +1,7 @@
 <?php
 include 'koneksi.php';
 
-$res = show($conn);
-
+$res = isset($_GET['search_prodi']) ? searchProdi($conn, $_GET['search_prodi']) : show($conn);
 ?>
 
 <!DOCTYPE html>
@@ -15,12 +14,38 @@ $res = show($conn);
 </head>
 <body>
     <section>
+        <div class="form">
+            <form action="" method="get" class="input">
+                <label for="search_prodi">Cari berdasarkan Prodi: </label> 
+                <select id="search_prodi" name="search_prodi">
+                    <option value="---Pilih Prodi---">---Pilih Prodi---</option>
+                    <option value="T.IF">T.IF</option>
+                    <option value="T.Elektro">T.Elektro</option>
+                    <option value="T.Mesin">T.Mesin</option>
+                    <option value="T.Kimia">T.Kimia</option>
+                    <option value="T.Fisika">T.Fisika</option>
+                    <option value="T.Industri">T.Industri</option>
+                    <option value="T.Industri">T.Pangan</option>
+                    <option value="T.Industri">T.Kelautan</option>
+                    <option value="Matematika">Matematika</option>
+                    <option value="Kimia">Kimia</option>
+                    <option value="Fisika">Fisika</option>
+                    <option value="Biologi">Biologi</option>
+                    <option value="Sains Data">Sains Data</option>
+                    <option value="Perencanaan Wilayah dan Kota">Perencanaan Wilayah dan Kota</option>
+                    <option value="Desain Komunikasi Visual">Desain Komunikasi Visual</option>
+                </select>
+                <input type="submit" value="Cari">
+            </form>
+        </div>
+
         <table>
             <thead>
                 <tr>
                     <th>NIM</th>
                     <th>Nama</th>
                     <th>Prodi</th>
+                    <th>Aksi</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,6 +56,9 @@ $res = show($conn);
                         <td><?= $row['NIM']?></td>
                         <td><?= $row['Nama']?></td>
                         <td><?= $row['Prodi']?></td>
+                        <td>
+                            <a href="edit.php?NIM=<?= $row['NIM'] ?>">Edit</a>
+                        </td>
                     </tr>
                 <?php endwhile; ?>
             </tbody>
@@ -49,6 +77,7 @@ $res = show($conn);
                 <div class="input-box">
                     <label for="prodi">Prodi: </label> 
                     <select id="prodi" name="prodi">
+                        <option value="---Pilih Prodi---">---Pilih Prodi---</option>
                         <option value="T.IF">T.IF</option>
                         <option value="T.Elektro">T.Elektro</option>
                         <option value="T.Mesin">T.Mesin</option>

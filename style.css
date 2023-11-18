@@ -15,7 +15,7 @@ section {
 }
 
 table {
-    margin-top: 30px;
+    margin-top: 90px;
     width: 100%;
     text-align: center;
     border-collapse: collapse;
@@ -106,4 +106,12 @@ select{
 .input {
     width: 350px;
     height: 40px;
+}
+
+.form .input {
+    gap: 15px;
+}
+
+.form .input select {
+    height: 100%;
 }
