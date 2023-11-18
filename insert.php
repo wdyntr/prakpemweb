@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
 
         if ($stmt->affected_rows > 0) {
-            echo "Data berhasil ditambahkan.";
+            echo '<script>alert("Data berhasil ditambahkan."); window.location.href = "index.php";</script>';
         } else {
             echo "Terjadi kesalahan : " . $stmt->error;
         }
@@ -21,6 +21,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->close();
     } 
 }
-header("Location: index.php");
 exit();
 ?>

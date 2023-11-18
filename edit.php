@@ -21,7 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update'])) {
     $stmt->execute();
 
     if ($stmt->affected_rows > 0) {
-        echo "Data berhasil diupdate.";
+        echo '<script>alert("Data berhasil diupdate."); window.location.href = "index.php";</script>';
+        exit();
     } else {
         echo "Gagal mengupdate data. Error: " . $stmt->error;
     }
@@ -83,8 +84,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update'])) {
 
 </body>
 </html>
-
-<?php
-header("Location: index.php");
-exit();
-?>
