@@ -8,17 +8,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (isset($nim, $nama, $prodi)) {
         $sql = "INSERT INTO mahasiswa (NIM, Nama, Prodi) VALUES (?, ?, ?)";
-        $stmt = $conn->prepare($sql);
-        $stmt->bind_param("iss", $nim, $nama, $prodi);
-        $stmt->execute();
+        $res = $conn->prepare($sql);
+        $res->bind_param("iss", $nim, $nama, $prodi);
+        $res->execute();
 
-        if ($stmt->affected_rows > 0) {
+        if ($res->affected_rows > 0) {
             echo '<script>alert("Data berhasil ditambahkan."); window.location.href = "index.php";</script>';
         } else {
-            echo "Terjadi kesalahan : " . $stmt->error;
+            echo "Terjadi kesalahan : " . $res->error;
         }
 
-        $stmt->close();
+        $res->close();
     } 
 }
 exit();

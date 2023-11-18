@@ -16,18 +16,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update'])) {
     $prodi = $_POST['prodi'];
 
     $sql = "UPDATE mahasiswa SET NIM=?, Nama=?, Prodi=? WHERE NIM=?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ssss", $nim, $nama, $prodi, $nim);
-    $stmt->execute();
+    $res = $conn->prepare($sql);
+    $res->bind_param("ssss", $nim, $nama, $prodi, $nim);
+    $res->execute();
 
-    if ($stmt->affected_rows > 0) {
+    if ($res->affected_rows > 0) {
         echo '<script>alert("Data berhasil diupdate."); window.location.href = "index.php";</script>';
         exit();
     } else {
-        echo "Gagal mengupdate data. Error: " . $stmt->error;
+        echo "Gagal mengupdate data. Error: " . $res->error;
     }
 
-    $stmt->close();
+    $res->close();
 } elseif ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['NIM'])) {
     $nim = $_GET['NIM'];
     $result = getById($conn, $nim);
