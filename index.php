@@ -103,6 +103,10 @@ $res = isset($_GET['search_prodi']) ? searchProdi($conn, $_GET['search_prodi']) 
                 </div>
             </form>
             <form action="del.php" method='POST'>
+                <div class="input-box">
+                    <input type="number" name="nim" required>
+                    <label for="nim">NIM</label>
+                </div>
                 <div class="btn hapus">
                     <input type="submit" name="hapus" value="Hapus">
                 </div>

@@ -1,9 +1,9 @@
 <?php
 include 'koneksi.php';
 
-if (isset($_POST["hapus"])) {
-    // Proses penghapusan data terakhir dari database
-    $sql = "DELETE FROM mahasiswa ORDER BY time DESC LIMIT 1";
+if (isset($_POST["nim"])) {
+    $nim = $_POST['nim'];
+    $sql = "DELETE FROM mahasiswa WHERE NIM=$nim";
     $result = $conn->query($sql);
 
     if ($result) {
